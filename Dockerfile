@@ -2,7 +2,7 @@ FROM composer:1.10 as c
 
 RUN git clone https://github.com/astralapp/astral.git
 WORKDIR astral
-RUN git checkout 2cb857c
+RUN git checkout 4cd0b56
 RUN sed -i 's/Cache::put($key, $fetched, $expiry);/Cache::forever($key, $fetched);/g' app/Http/Controllers/GitHubStarsController.php
 RUN sed -i 's/Cache::put($key, $new, $expiry);/Cache::forever($key, $new);/g' app/Http/Controllers/GitHubStarsController.php
 RUN composer install

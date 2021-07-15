@@ -1,4 +1,4 @@
-**[Dockerized Astral](https://hub.docker.com/r/kdockerfiles/astral/)**
+**[Dockerized](https://hub.docker.com/r/kdockerfiles/astral/) [Astral](https://github.com/astralapp/astral)**
 
 # Usage
 1. [Get OAuth App API keys](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/).
@@ -15,6 +15,14 @@ localhost:80 {
     rewrite {
         to {path} {path}/ /index.php?{query}
     }
+}
+```
+* Example configuration for [Caddy 2.x](https://caddyserver.com/v2):
+```
+http://localhost:80 {
+    root * /var/www/html/public/
+    php_fastcgi astral:9000
+    file_server
 }
 ```
 * If webserver is outside Docker, should add port forwarding (e.g. `-p "9000:9000"`) and volume mount (e.g. `-v /my/statics/dir/:/var/www/html/public/`) to Docker command.

@@ -1,4 +1,4 @@
-FROM composer:1.10 as c
+FROM composer:1.10.19 as c
 
 RUN git clone https://github.com/astralapp/astral.git
 WORKDIR astral

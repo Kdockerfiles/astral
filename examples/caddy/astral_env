@@ -1,0 +1,3 @@
+GITHUB_CLIENT_ID=<REPLACE_ME>
+GITHUB_CLIENT_SECRET=<REPLACE_ME>
+GITHUB_CLIENT_CALLBACK_URL=http://astral.example.com/auth/github/callback

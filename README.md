@@ -2,7 +2,7 @@
 
 # Usage
 1. [Get OAuth App API keys](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/).
-2. `$ docker run -e GITHUB_CLIENT_ID=<ID> -e GITHUB_CLIENT_SECRET=<secret> -e GITHUB_CALLBACK_URL=<url> kdockerfiles/astral:1ec1fc6-1`
+2. `$ docker run -e GITHUB_CLIENT_ID=<ID> -e GITHUB_CLIENT_SECRET=<secret> -e GITHUB_CALLBACK_URL=<url> ghcr.io/kdockerfiles/astral:6f5b706-1`
 ## 3. Get webserver attached.
 * Should look for FPM at port `9000`.
 * Should look for statics at `/var/www/html/public/`.
@@ -26,6 +26,8 @@ http://localhost:80 {
 }
 ```
 * If webserver is outside Docker, should add port forwarding (e.g. `-p "9000:9000"`) and volume mount (e.g. `-v /my/statics/dir/:/var/www/html/public/`) to Docker command.
+
+* Check `exmaples` directory for an example `docker-compose.yml`.
 
 # Notes
 * It is switched to use SQLite as DB backend.

@@ -1,0 +1,35 @@
+services:
+    astral:
+        image: ghcr.io/kdockerfiles/astral:6f5b706-1
+        container_name: astral
+        env_file:
+            - astral_env
+        volumes:
+            - astral:/var/www/html/public/
+        networks:
+            - astral
+        restart: unless-stopped
+
+    webserver:
+        image: caddy:2.4.6-alpine
+        container_name: webserver
+        volumes:
+            - ./Caddyfile:/etc/caddy/Caddyfile:ro
+            - astral:/var/www/html/public/:ro
+            - caddy_config:/config/
+            - caddy_data:/data/
+        ports:
+            - "80:80"
+            - "443:443"
+        networks:
+            - astral
+        depends_on:
+            - astral
+        restart: unless-stopped
+
+networks:
+    astral:
+volumes:
+    astral:
+    caddy_config:
+    caddy_data:

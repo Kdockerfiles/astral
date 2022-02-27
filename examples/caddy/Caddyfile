@@ -1,0 +1,9 @@
+{
+    email youremail@example.com
+}
+
+astral.example.com {
+    root * /var/www/html/public/
+    php_fastcgi astral:9000
+    file_server
+}

@@ -1,0 +1,19 @@
+name: images
+
+on:
+    push:
+        tags:
+            - "*"
+
+jobs:
+    images:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: elgohr/Publish-Docker-Github-Action@3.04
+              with:
+                  name: kdockerfiles/astral
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+                  tag_names: true

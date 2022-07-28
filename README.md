@@ -27,7 +27,7 @@ http://localhost:80 {
 ```
 * If webserver is outside Docker, should add port forwarding (e.g. `-p "9000:9000"`) and volume mount (e.g. `-v /my/statics/dir/:/var/www/html/public/`) to Docker command.
 
-* Check `exmaples` directory for an example `docker-compose.yml`.
+* Check `examples` directory for an example `docker-compose.yml`.
 
 # Notes
 * It is switched to use SQLite as DB backend.

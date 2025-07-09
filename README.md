@@ -2,7 +2,7 @@
 
 # Usage
 1. [Get OAuth App API keys](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/).
-2. `$ docker run -e GITHUB_CLIENT_ID=<ID> -e GITHUB_CLIENT_SECRET=<secret> -e GITHUB_CALLBACK_URL=<url> ghcr.io/kdockerfiles/astral:6f5b706-1`
+2. `$ docker run -e GITHUB_CLIENT_ID=<ID> -e GITHUB_CLIENT_SECRET=<secret> -e GITHUB_CALLBACK_URL=<url> ghcr.io/kdockerfiles/astral:d8f2404-1`
 ## 3. Get webserver attached.
 * Should look for FPM at port `9000`.
 * Should look for statics at `/var/www/html/public/`.

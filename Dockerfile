@@ -1,22 +1,22 @@
-FROM composer:1.10.19 as c
+FROM composer:2.2.23 AS c
 
 RUN git clone https://github.com/astralapp/astral.git
 WORKDIR astral
-RUN git checkout 6f5b706
+RUN git checkout d8f2404
 RUN sed -i 's/Cache::put($key, $fetched, $expiry);/Cache::forever($key, $fetched);/g' app/Http/Controllers/GitHubStarsController.php
 RUN sed -i 's/Cache::put($key, $new, $expiry);/Cache::forever($key, $new);/g' app/Http/Controllers/GitHubStarsController.php
 RUN composer install
 
-FROM node:14.19-alpine3.15 as a
+FROM node:18.20-alpine3.21 AS a
 
 COPY --from=c /app/astral/ /astral/
 
 WORKDIR /astral
-RUN yarn
-RUN yarn prod
+RUN npm install --legacy-peer-deps
+RUN npm run prod
 RUN rm -rf node_modules/
 
-FROM php:7.4-fpm-alpine3.15
+FROM php:8.3-fpm-alpine3.21
 
 COPY --from=a --chown=www-data:www-data /astral/ ./
 

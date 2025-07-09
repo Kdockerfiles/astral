@@ -11,7 +11,7 @@ services:
         restart: unless-stopped
 
     webserver:
-        image: caddy:2.4.6-alpine
+        image: caddy:2.10.0-alpine
         container_name: webserver
         volumes:
             - ./Caddyfile:/etc/caddy/Caddyfile:ro

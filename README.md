@@ -1,4 +1,4 @@
-**[Dockerized](https://hub.docker.com/r/kdockerfiles/astral/) [Astral](https://github.com/astralapp/astral)**
+**[Dockerized](https://github.com/Kdockerfiles/astral/pkgs/container/astral) [Astral](https://github.com/astralapp/astral)**
 
 # Usage
 1. [Get OAuth App API keys](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/).
